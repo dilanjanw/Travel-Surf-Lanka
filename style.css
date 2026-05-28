@@ -445,6 +445,7 @@ ol{margin:14px 0 0; padding-left:20px; color:var(--muted); line-height:1.8}
   .itinerary-grid{grid-template-columns:1fr}
   .hero-actions,.hero-pills,.form-actions{flex-direction:column; align-items:flex-start}
   .floating-book{bottom:72px; right:14px}
+  .floating-fleet{bottom:126px; right:14px}
   .floating-translate{left:14px; bottom:14px}
   .floating-wa{right:14px; bottom:14px}
 }
@@ -641,4 +642,112 @@ details[open]{
 
 details > *:not(summary){
   padding:0 22px 20px 22px;
+}
+
+
+/* ── VEHICLE FLEET FLOATING BUTTON ── */
+.floating-fleet{
+  position:fixed;
+  right:18px;
+  bottom:72px;
+  z-index:1001;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:15px 22px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--teal),#2cb6ae);
+  color:#041019;
+  font-weight:700;
+  font-size:.85rem;
+  letter-spacing:.4px;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 18px 36px rgba(71,214,200,.30);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.floating-fleet:hover{
+  transform:translateY(-3px);
+  box-shadow:0 22px 42px rgba(71,214,200,.36);
+  filter:brightness(1.03);
+}
+
+/* ── DESTINATIONS PAGE ── */
+.page-hero{
+  min-height:48vh;
+  padding:140px 5vw 70px;
+  display:grid;
+  align-items:end;
+  background:
+    linear-gradient(180deg, rgba(5,11,21,.44), rgba(5,11,21,.84)),
+    radial-gradient(circle at top right, rgba(247,199,107,.12), transparent 28%),
+    radial-gradient(circle at top left, rgba(71,214,200,.12), transparent 28%);
+}
+.page-hero .hero-content{max-width:900px}
+.page-hero h1{font-size:clamp(2.8rem, 6vw, 5.4rem)}
+.page-hero p{max-width:760px}
+.page-hero .hero-actions{margin-top:26px}
+
+.destination-nav{display:flex; flex-wrap:wrap; gap:10px; margin-top:20px}
+.destination-nav a{
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  color:rgba(255,255,255,.86);
+  font-size:.8rem;
+  letter-spacing:.6px;
+}
+.destination-nav a:hover{border-color:rgba(247,199,107,.28); color:var(--gold)}
+
+.destination-section{padding:86px 5vw}
+.destination-grid{display:grid; gap:18px}
+.destination-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.destination-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.destination-grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.destination-grid.five{grid-template-columns:repeat(5,minmax(0,1fr))}
+.destination-card{
+  padding:24px;
+  border-radius:var(--radius);
+  background:var(--card);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.destination-card-image{
+  width:100%;
+  display:block;
+  margin-top:18px;
+  border-radius:18px;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  box-shadow:0 18px 40px rgba(0,0,0,.22);
+  border:1px solid rgba(255,255,255,.08);
+}
+.destination-card h3{margin:0 0 10px; font-size:1.28rem}
+.destination-card p{margin:0 0 10px; color:var(--muted); line-height:1.8}
+.destination-card ul{margin:12px 0 0; padding-left:18px; color:var(--muted); line-height:1.8}
+.destination-pill{
+  display:inline-flex; align-items:center; gap:8px;
+  margin-bottom:14px; padding:8px 12px; border-radius:999px;
+  background:rgba(71,214,200,.12); border:1px solid rgba(71,214,200,.18);
+  color:var(--teal); font-size:.77rem; letter-spacing:1px; text-transform:uppercase;
+}
+.destination-meta{color:var(--gold); font-size:.88rem; letter-spacing:.4px; margin-bottom:10px}
+.destination-note{
+  padding:18px 20px; border-radius:20px; margin-top:20px;
+  background:rgba(247,199,107,.08); border:1px solid rgba(247,199,107,.14);
+  color:rgba(255,255,255,.86); line-height:1.8;
+}
+
+@media (max-width: 1100px){
+  .destination-grid.two,.destination-grid.three,.destination-grid.four,.destination-grid.five{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width: 680px){
+  .page-hero{padding:118px 4vw 56px; min-height:auto}
+  .destination-section{padding:68px 4vw}
+  .destination-grid.two,.destination-grid.three,.destination-grid.four,.destination-grid.five{grid-template-columns:1fr}
+  .floating-fleet{right:14px; bottom:126px}
 }
